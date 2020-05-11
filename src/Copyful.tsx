@@ -1,37 +1,35 @@
-import React, { createContext } from "react";
-export type InterpolateString = (copyString: string, dynamicValues: Array<string|number> ) => string;
+import React, { createContext, useMemo } from "react";
+import { getInterpolatedCopy } from "./helpers";
+export type InterpolationValues = { [key: string]: string | number };
 
-export const createCopyful = <T,>(defaultCopy: T) => {
-
+export const createCopyful = <TCopy,>(defaultCopy: TCopy) => {
   const Context = createContext(defaultCopy);
 
-  const CopyfulProvider: any = ({
-    value = defaultCopy,
+  const CopyfulProvider: (props: {
+    copy: TCopy;
+    children: any;
+  }) => JSX.Element = ({
+    copy = defaultCopy,
     children,
   }: {
-    value?: T;
+    copy?: TCopy;
     children: React.ComponentType;
   }) => {
-    return <Context.Provider value={value}>{children}</Context.Provider>;
+    return <Context.Provider value={copy}>{children}</Context.Provider>;
   };
 
-  const useCopy = (): T => {
+  const useCopy = (context: InterpolationValues = {}): TCopy => {
     const copy = React.useContext(Context);
-    return React.useMemo(() => copy, [copy]);
+    const interpolatedCopy = context
+      ? getInterpolatedCopy(copy, context)
+      : copy;
+    return useMemo(() => interpolatedCopy, [interpolatedCopy]);
   };
 
   return {
     CopyfulProvider,
-    useCopy
+    useCopy,
   };
 };
-
-export const interpolateString: InterpolateString = (copyString, dynamicValues) => {
-  let newString = copyString;
-  dynamicValues.forEach( ( value, i) => {
-    newString = newString.replace(`{${i}}`, value.toString());
-  })
-  return newString;
-}
 
 export default createCopyful;

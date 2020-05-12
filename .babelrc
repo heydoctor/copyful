@@ -1,0 +1,8 @@
+{
+  "presets": ["@babel/react"],
+  "ignore": ["**/*.d.ts", "**/*.test.*"],
+  "plugins": [
+    "@babel/plugin-transform-typescript",
+    "babel-plugin-typescript-to-proptypes"
+  ]
+}

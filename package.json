@@ -1,12 +1,23 @@
 {
   "name": "copyful",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.7",
+  "private": false,
+  "main": "dist/js/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/js/index.d.ts",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --verbose",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:lib": "yarn build:babel && yarn build:types && node ./scripts/copyTS.js",
+    "build:babel": "concurrently \"yarn build:babel:esm && yarn build:babel:umd\" \"yarn build:babel:cjs\"",
+    "build:babel:cjs": "BABEL_ENV=cjs babel --source-maps --extensions \".js,.ts,.tsx\" src/Copyful --out-dir dist/js --presets=@babel/env",
+    "build:babel:esm": "BABEL_ENV=esm babel --source-maps --extensions \".js,.ts,.tsx\" src/Copyful --out-dir dist/esm",
+    "build:babel:umd": "BABEL_ENV=umd babel --source-maps --extensions \".js\" dist/esm --out-dir dist/umd --plugins=transform-es2015-modules-umd",
+    "build:types": "tsc -p tsconfig.gen-dts.json",
+    "develop": "yarn build:types && yarn build:babel:esm --skip-initial-build --watch --verbose",
+    "prepare": "yarn build:lib && standard-version"
   },
   "jest": {
     "testMatch": [
@@ -31,23 +42,32 @@
       "last 1 safari version"
     ]
   },
+  "peerDependencies": {
+    "react": ">16.8.0",
+    "react-dom": ">16.8.0"
+  },
   "dependencies": {
+    "react-scripts": "3.4.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "@types/react": ">16.8.0",
+    "@types/react-dom": ">16.8.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-plugin-typescript-to-proptypes": "^1.3.2",
+    "concurrently": "^5.2.0",
+    "rimraf": "^3.0.2",
+    "standard-version": "^8.0.0",
+    "ts-jest": "^25.5.1",
     "typescript": "~3.7.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-typescript": "^7.9.0",
-    "ts-jest": "^25.5.1"
   }
 }

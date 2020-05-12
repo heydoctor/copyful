@@ -6,7 +6,8 @@
       "nested": {
         "dynamicValues": "Yes, even dynamic values, like this number: {someNumber} and this string: {someString}."
       }
-    }
+    },
+    "body": "Product copy can become difficult to manage across product platforms as well as internal design and engineering tooling. Copy changes frequently and for many reasons (more clarity, typo, legal guidance, etc...) and engineering **must** be involved to make these changes. Sometimes the changes aren't straightforward - it becomes a hunt across repositories or copy has drifted across our web and native applications."
   },
   "1337": {
     "header": {
@@ -15,6 +16,7 @@
       "nested": {
         "dynamicValues": "y35, 3v3n dyn4m1c v4lu35, l1k3 7h15 numb3r: {someNumber} 4nd 7h15 57r1n6: {someString}."
       }
-    }
+    },
+    "body": "Product copy can become difficult to manage across product platforms as well as internal design and engineering tooling. Copy changes frequently and for many reasons (more clarity, typo, legal guidance, etc...) and engineering **must** be involved to make these changes. Sometimes the changes aren't straightforward - it becomes a hunt across repositories or copy has drifted across our web and native applications." 
   }
 }

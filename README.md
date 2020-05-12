@@ -39,7 +39,6 @@ function App() {
 ```
 
 ### Hooks
-This is the recommended usage for apps using React 16.8+
 ```javascript
 function HeaderSection() {
   const context = {
@@ -56,9 +55,7 @@ function HeaderSection() {
 }
 ```
 
-## Coming Soon
 ### HOC
-For React < 16.8; Wrap your app with the provider, and access copy through props.
 ```javascript
 function HeaderSection({copy}) {
   return (

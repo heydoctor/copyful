@@ -26,9 +26,20 @@ export const createCopyful = <TCopy,>(defaultCopy: TCopy) => {
     return useMemo(() => interpolatedCopy, [interpolatedCopy]);
   };
 
+  const withCopy = (Component: any) => {
+    const WithCopy = React.forwardRef(function WithCopy(props: any, ref) {
+      const { innerRef, ...rest } = props;
+      const copy = useCopy() || defaultCopy; 
+      return <Component copy={copy} ref={innerRef || ref} {...rest} />;
+    });
+
+    return WithCopy;
+  };
+
   return {
     CopyfulProvider,
     useCopy,
+    withCopy,
   };
 };
 

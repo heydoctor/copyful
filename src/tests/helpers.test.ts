@@ -1,4 +1,4 @@
-import { getInterpolatedCopy } from "../helpers";
+import { getInterpolatedCopy } from "../Copyful/helpers";
 
 describe("getInterpolatedCopy", () => {
   const copy = {

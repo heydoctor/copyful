@@ -1,5 +1,17 @@
 {
-  "presets": ["@babel/react"],
+  "comments": false,
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "loose": true,
+        "targets": {
+          "browsers": ["last 1 version"]
+        }
+      }
+    ],
+    "@babel/react"
+  ],
   "ignore": ["**/*.d.ts", "**/*.test.*"],
   "plugins": [
     "@babel/plugin-transform-typescript",

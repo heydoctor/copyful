@@ -1,10 +1,10 @@
-import React from "react";
-import { useCopy } from "./configureCopy";
+import React from 'react';
+import { useCopy } from './configureCopy';
 
 const HeaderSection = () => {
   const context = {
     someNumber: 4815162342,
-    someString: "Hello World!",
+    someString: 'Hello World!',
   };
   const {
     title,
@@ -21,6 +21,6 @@ const HeaderSection = () => {
       </header>
     </div>
   );
-}
+};
 
 export default HeaderSection;

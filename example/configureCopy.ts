@@ -1,5 +1,5 @@
-import { createCopyful } from "./Copyful";
-import copy from "./copy.json";
+import { createCopyful } from '../src/Copyful';
+import copy from './copy.json';
 
 export interface LocalesType {
   [key: string]: CopyType;
@@ -15,11 +15,10 @@ export interface CopyType {
   body: string;
 }
 
-
 export const getCopySomehow = (locale: string) => {
   return (copy as LocalesType)[locale];
 };
 
 export const { CopyfulProvider, useCopy, withCopy } = createCopyful(
-  getCopySomehow("1337")
+  getCopySomehow('1337')
 );

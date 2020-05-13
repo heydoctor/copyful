@@ -10,9 +10,9 @@ export const getInterpolatedCopy = <TCopy, TContext>(
 const findInterpolations = (copy: any, context: any) => {
   Object.keys(copy).forEach((key) => {
     const currItem = copy[key];
-    if (typeof currItem === "object") {
+    if (typeof currItem === 'object') {
       findInterpolations(currItem, context);
-    } else if (typeof currItem === "string") {
+    } else if (typeof currItem === 'string') {
       copy[key] = interpolateCopy(currItem, context);
     }
   });

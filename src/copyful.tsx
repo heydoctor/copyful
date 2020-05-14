@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { getInterpolatedCopy } from './helpers';
+
 export type InterpolationValues = { [key: string]: string | number };
 
 export const createCopyful = <TCopy,>(defaultCopy: TCopy) => {
@@ -19,18 +20,29 @@ export const createCopyful = <TCopy,>(defaultCopy: TCopy) => {
     return <Context.Provider value={value}>{children}</Context.Provider>;
   };
 
-  const useCopy = (context: InterpolationValues = {}): TCopy => {
+  const useCopy = <T extends keyof TCopy>(
+    key: T,
+    context: InterpolationValues = {}
+  ): TCopy[T] => {
     const copy = React.useContext(Context);
+    const copyBlock = copy[key];
+
     const interpolatedCopy = context
-      ? getInterpolatedCopy(copy, context)
-      : copy;
+      ? getInterpolatedCopy(copyBlock, context)
+      : copyBlock;
+
     return React.useMemo(() => interpolatedCopy, [interpolatedCopy]);
   };
 
-  const withCopy = (Component: any) => {
+  const withCopy = (
+    Component: any,
+    key: keyof TCopy,
+    context: InterpolationValues = {}
+  ) => {
     const WithCopy = React.forwardRef(function WithCopy(props: any, ref: any) {
       const { innerRef, ...rest } = props;
-      const copy = useCopy() || defaultCopy;
+      const copy = useCopy(key, context) || defaultCopy;
+
       return <Component copy={copy} ref={innerRef || ref} {...rest} />;
     });
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { withCopy, CopyType } from './configureCopy';
+import { withCopy } from './configureCopy';
 
-const BodySection = ({ copy }: { copy: CopyType }) => {
-  return <div>{copy.body}</div>;
+const BodySection = ({ copy }: { copy: string }) => {
+  return <div>{copy}</div>;
 };
-export default withCopy(BodySection);
+export default withCopy(BodySection, 'body');

@@ -6,11 +6,8 @@ const HeaderSection = () => {
     someNumber: 4815162342,
     someString: 'Hello World!',
   };
-  const {
-    title,
-    subtitle,
-    nested: { dynamicValues },
-  } = useCopy(context).header;
+
+  const { title, subtitle, dynamicValues } = useCopy('header', context);
 
   return (
     <div className="App">

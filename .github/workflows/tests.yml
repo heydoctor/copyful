@@ -8,5 +8,4 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
     - run: yarn install --frozen-lockfile
-    - run: yarn lint
     - run: yarn test --coverage

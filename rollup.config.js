@@ -7,8 +7,7 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      dir: 'lib',
-      entryFileNames: 'copyful.js',
+      file: pkg.main,
       format: 'cjs',
     },
     {

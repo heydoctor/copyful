@@ -27,7 +27,6 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
-      "npm run test",
       "prettier --write"
     ]
   },

@@ -1,7 +1,4 @@
-export const getInterpolatedCopy = <TCopy, TContext>(
-  copy: TCopy,
-  context: TContext
-) => {
+export const getInterpolatedCopy = <TCopy, TContext>(copy: TCopy, context: TContext) => {
   let newCopy = { ...copy };
   findInterpolations(newCopy, context);
   return newCopy;
@@ -20,9 +17,7 @@ const findInterpolations = (copy: any, context: any) => {
 
 const interpolateCopy = (str: string, context: any) => {
   const delimeterMatcher = /{\S+}/gm;
-  const variables = (str.match(delimeterMatcher) || []).map((dV: string) =>
-    dV.substring(1, dV.length - 1)
-  );
+  const variables = (str.match(delimeterMatcher) || []).map((dV: string) => dV.substring(1, dV.length - 1));
   if (variables.length) {
     let interpolatedValue = str;
     variables.forEach((v) => {

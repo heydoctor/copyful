@@ -45,7 +45,8 @@ function HeaderSection() {
   const context = {
     pageTitle: 'Copyful'
   };
-  const { title, subtitle } = useCopy(context).header;
+
+  const { title, subtitle } = useCopy('header', context);
 
   return (
     <header className="header-section">
@@ -58,7 +59,7 @@ function HeaderSection() {
 
 ### HOC
 ```javascript
-function HeaderSection({copy}) {
+function HeaderSection({ copy }) {
   return (
     <header className="header-section">
       <h1>{copy.title}</h1>
@@ -67,7 +68,7 @@ function HeaderSection({copy}) {
   );
 }
 
-export default withCopy(HeaderSection)
+export default withCopy(HeaderSection, 'header');
 ```
 
 ## Example

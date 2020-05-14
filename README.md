@@ -9,7 +9,8 @@ Copyful simplifies copy management by providing a simple way to consume and dist
 ## Usage
 Install with npm or yarn.
 ```
-npm install --save copyful
+npm install copyful
+yarn add copyful
 ```
 
 Instantiate Copyful with `createCopyful`.
@@ -68,3 +69,7 @@ function HeaderSection({copy}) {
 
 export default withCopy(HeaderSection)
 ```
+
+## Example
+Checkout `/example` for a working react app using Copyful, or pull down the repo and play with it locally
+'yarn example'

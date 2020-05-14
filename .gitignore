@@ -24,3 +24,5 @@ yarn-error.log*
 
 # publish
 /lib
+/dist
+/.cache

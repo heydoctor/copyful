@@ -1,5 +1,5 @@
 module.exports = {
-  collectCoverageFrom: ['src/**/*.ts'],
-  testMatch: ['**/*.spec.ts'],
+  collectCoverageFrom: ['src/**/*.(ts|tsx)'],
+  testMatch: ['**/*.spec.(ts|tsx)'],
   // transform: { '^.+\\.(ts|tsx)?$': 'ts-jest' },
 };

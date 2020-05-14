@@ -6,7 +6,7 @@ export const createCopyful = <TCopy,>(defaultCopy: TCopy) => {
   const Context = React.createContext(defaultCopy);
 
   const CopyfulProvider: (props: {
-    copy: TCopy;
+    copy?: TCopy;
     children: any;
   }) => JSX.Element = ({
     copy = defaultCopy,
@@ -15,7 +15,8 @@ export const createCopyful = <TCopy,>(defaultCopy: TCopy) => {
     copy?: TCopy;
     children: React.ComponentType;
   }) => {
-    return <Context.Provider value={copy}>{children}</Context.Provider>;
+    const value = copy || defaultCopy;
+    return <Context.Provider value={value}>{children}</Context.Provider>;
   };
 
   const useCopy = (context: InterpolationValues = {}): TCopy => {

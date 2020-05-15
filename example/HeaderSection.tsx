@@ -1,12 +1,12 @@
 import React from 'react';
 import { useCopy } from './configureCopy';
 
-const HeaderSection = () => {
-  const context = {
-    someNumber: 4815162342,
-    someString: 'Hello World!',
-  };
+const context = {
+  someNumber: 4815162342,
+  someString: 'Hello World!',
+};
 
+export const HeaderSection: React.FC = () => {
   const { title, subtitle, dynamicValues } = useCopy('header', context);
 
   return (
@@ -19,5 +19,3 @@ const HeaderSection = () => {
     </div>
   );
 };
-
-export default HeaderSection;

@@ -1,4 +1,4 @@
-const copy = {
+export const copy = {
   'en-us': {
     header: {
       title: 'Copyful',
@@ -21,6 +21,4 @@ const copy = {
       "pr0duc7 c0py c4n b3c0m3 d1ff1cul7 70 m4n463 4cr055 pr0duc7 pl47f0rm5 45 w3ll 45 1n73rn4l d3516n 4nd 3n61n33r1n6 700l1n6. c0py ch4n635 fr3qu3n7ly 4nd f0r m4ny r3450n5 (m0r3 cl4r17y, 7yp0, l364l 6u1d4nc3, 37c...) 4nd 3n61n33r1n6 **mu57** b3 1nv0lv3d 70 m4k3 7h353 ch4n635. 50m371m35 7h3 ch4n635 4r3n'7 57r416h7f0rw4rd - 17 b3c0m35 4 hun7 4cr055 r3p05170r135 0r c0py h45 dr1f73d 4cr055 0ur w3b 4nd n471v3 4ppl1c4710n5.",
     footer: '4w350m3? - {anotherValue}',
   },
-};
-
-export { copy };
+} as const;

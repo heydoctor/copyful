@@ -5,6 +5,7 @@ describe('getInterpolatedCopy', () => {
     title: 'The Title is {title}',
     sub: 'The Subtitle is {sub}',
   };
+
   const interpolationValues = {
     title: 'Copyful',
     sub: 'Awesome',
@@ -31,5 +32,10 @@ describe('getInterpolatedCopy', () => {
     const interpolatedCopy = getInterpolatedCopy(copy, {});
     expect(interpolatedCopy.title).toEqual(copy.title);
     expect(interpolatedCopy.sub).toEqual(copy.sub);
+  });
+
+  it('interpolates string values', () => {
+    const interpolatedCopy = getInterpolatedCopy('The Subtitle is {sub}', interpolationValues);
+    expect(interpolatedCopy).toEqual(`The Subtitle is ${interpolationValues.sub}`);
   });
 });

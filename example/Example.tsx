@@ -1,17 +1,21 @@
 import React from 'react';
-import { CopyfulProvider, getCopySomehow } from './configureCopy';
-import HeaderSection from './HeaderSection';
-import BodySection from './BodySection';
+import { CopyfulProvider, Copyful } from './configureCopy';
+import { HeaderSection } from './HeaderSection';
 
-function Example() {
+export const Example = () => {
   return (
-    <CopyfulProvider copy={getCopySomehow('en-us')}>
-      {/* Example Using Hooks */}
+    <CopyfulProvider>
+      {/* Example using Hooks */}
       <HeaderSection />
-      {/* Example Using HOC */}
-      <BodySection />
+
+      {/* Example using a render prop */}
+      <Copyful copyKey="footer" context={{ anotherValue: 'I love pizza' }}>
+        {copy => (
+          <section>
+            <article>{copy}</article>
+          </section>
+        )}
+      </Copyful>
     </CopyfulProvider>
   );
-}
-
-export default Example;
+};

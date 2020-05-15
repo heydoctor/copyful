@@ -13,5 +13,5 @@ Object {
 exports[`cli commands clone() writes data returned from the adapter to the file system 1`] = `
 "export const copy = {
   \\"test\\": \\"data\\"
-};"
+} as const;"
 `;

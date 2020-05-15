@@ -7,4 +7,5 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
     - run: yarn install --frozen-lockfile
+    - run: yarn npm-run-all build cli:build
     - run: yarn test --coverage

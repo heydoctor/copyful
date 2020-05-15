@@ -26,3 +26,6 @@ yarn-error.log*
 /lib
 /dist
 /.cache
+
+.env
+tmp

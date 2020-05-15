@@ -81,8 +81,6 @@ export default withCopy(HeaderSection, 'header');
 Checkout `/example` for a working react app using Copyful, or pull down the repo and play with it locally
 'yarn example'
 
----
-
 ## Remote Sources
 Copyful also has built in support for pulling down your copy from remote sources via its CLI. To begin, it only has support for [Contentful](https://www.contentful.com) but in an extensisble and modular fashion, such that it should be easy to add other *adapters* like Google Sheets or any other headless CMS.
 
@@ -115,8 +113,11 @@ export const copy = {
 - `path` *string* The filepath in which you want the copy to be written to
   
 ```sh
-$ npx copyful clone --adapter contentful --path app/assets/copy.js
+$ npx copyful clone --adapter <adapter> --path app/assets/copy.js
 ```
+
+### Sources
+> Notes on any nuances or unique considerations for remote sources
 
 ##### Contentful
 When cloning, ensure that `COPYFUL_CONTENTFUL_SPACE` and `COPYFUL_CONTENTFUL_ACCESS_TOKEN` are populated in your environment. Initially, we're quite opinionated on the data structure, both in Contentful and the resulting generated copy file. 

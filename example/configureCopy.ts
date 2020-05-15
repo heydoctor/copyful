@@ -1,4 +1,4 @@
-import { createCopyful } from '../src/Copyful';
+import { createCopyful } from '../src/copyful';
 import { copy } from './copy';
 
 export type Locales = 'en-us' | '1337';

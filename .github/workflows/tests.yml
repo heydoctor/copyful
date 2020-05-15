@@ -9,3 +9,6 @@ jobs:
     - run: yarn install --frozen-lockfile
     - run: yarn npm-run-all build cli:build
     - run: yarn test --coverage
+    - run: npx codecov
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

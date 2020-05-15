@@ -1,14 +1,11 @@
-export const getInterpolatedCopy = <TCopy, TContext>(
-  copy: TCopy,
-  context: TContext
-) => {
+export const getInterpolatedCopy = <TCopy, TContext>(copy: TCopy, context: TContext) => {
   let newCopy = { ...copy };
   findInterpolations(newCopy, context);
   return newCopy;
 };
 
 const findInterpolations = (copy: any, context: any) => {
-  Object.keys(copy).forEach((key) => {
+  Object.keys(copy).forEach(key => {
     const currItem = copy[key];
     if (typeof currItem === 'object') {
       findInterpolations(currItem, context);
@@ -25,7 +22,7 @@ const interpolateCopy = (str: string, context: any) => {
   );
   if (variables.length) {
     let interpolatedValue = str;
-    variables.forEach((v) => {
+    variables.forEach(v => {
       const target = `{${v}}`;
       const value = context[v] || target;
       interpolatedValue = interpolatedValue.replace(target, value);

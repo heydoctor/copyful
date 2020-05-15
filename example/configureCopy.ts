@@ -1,24 +1,8 @@
 import { createCopyful } from '../src/Copyful';
-import copy from './copy.json';
+import { copy } from './copy';
 
-export interface LocalesType {
-  [key: string]: CopyType;
-}
-export interface CopyType {
-  header: {
-    title: string;
-    subtitle: string;
-    nested: {
-      dynamicValues: string;
-    };
-  };
-  body: string;
-}
-
-export const getCopySomehow = (locale: string) => {
-  return (copy as LocalesType)[locale];
+export const getCopySomehow = (locale: 'en-us' | '1337') => {
+  return copy[locale];
 };
 
-export const { CopyfulProvider, useCopy, withCopy } = createCopyful(
-  getCopySomehow('1337')
-);
+export const { CopyfulProvider, useCopy, withCopy } = createCopyful(getCopySomehow('1337'));

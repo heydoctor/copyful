@@ -6,18 +6,18 @@ const findInterpolations = (copy: any, context: any): any => {
     return interpolateCopy(copy, context);
   }
 
-  return Object.keys(copy).reduce((acc, key) => {
-    const currentItem = copy[key];
+  return Object.keys(copy).reduce(
+    (acc, key) => {
+      const currentItem = copy[key];
 
-    if (currentItem !== 'string') {
-      return {
-        ...acc,
-        [key]: findInterpolations(currentItem, context),
-      };
-    }
+      if (currentItem !== 'string') {
+        acc[key] = findInterpolations(currentItem, context);
+      }
 
-    return acc;
-  }, copy);
+      return acc;
+    },
+    { ...copy }
+  );
 };
 
 const interpolateCopy = (str: string, context: any) => {

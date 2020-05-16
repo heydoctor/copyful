@@ -2,18 +2,17 @@ import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { createCopyful } from '../src';
 import { copy } from '../example/copy';
+import { getCopySomehow, Locales } from '../example/configureCopy';
 
-const enUS = copy['en-us'];
-const leet = copy['1337'];
-
-const setup = (copyOverride = enUS) => {
-  const { CopyfulProvider, useCopy } = createCopyful(enUS);
+const setup = (copyOverrideLocale: Locales = 'en-us') => {
+  const { CopyfulProvider, useCopy } = createCopyful(getCopySomehow(copy, copyOverrideLocale));
 
   function TextComponent() {
     const { title, dynamicValues } = useCopy('header', {
       someNumber: 4,
       someString: 'heydoc',
     });
+
     return (
       <>
         <span>{title}</span>
@@ -23,7 +22,7 @@ const setup = (copyOverride = enUS) => {
   }
 
   return render(
-    <CopyfulProvider copy={copyOverride}>
+    <CopyfulProvider>
       <TextComponent />
     </CopyfulProvider>
   );
@@ -32,17 +31,9 @@ const setup = (copyOverride = enUS) => {
 afterEach(cleanup);
 
 describe('useCopy', () => {
-  const { asFragment } = setup(enUS);
+  const { asFragment } = setup('en-us');
 
   it('returns strings and interpolates values with provided context', () => {
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
-
-describe('CopyfulProvider', () => {
-  it('supports overriding default copy', () => {
-    const { asFragment } = setup(leet);
-
     expect(asFragment()).toMatchSnapshot();
   });
 });

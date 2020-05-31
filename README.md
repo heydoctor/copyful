@@ -1,6 +1,6 @@
 # ✏️ Copyful
 
-[![codecov](https://codecov.io/gh/heydoctor/copyful/branch/master/graph/badge.svg)](https://codecov.io/gh/heydoctor/copyful)
+[![codecov](https://codecov.io/gh/heydoctor/copyful/branch/master/graph/badge.svg?token=KRQ62D1GW7)](https://codecov.io/gh/heydoctor/copyful)
 [![npm](https://img.shields.io/npm/v/copyful.svg)](https://www.npmjs.com/package/copyful)
 [![npm](https://img.shields.io/npm/dm/copyful.svg)](https://npm-stat.com/charts.html?package=copyful&from=2017-05-19)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-prettier-brightgreen.svg)](http://standardjs.com/)

@@ -1,11 +1,19 @@
-import React from 'react';
-import { CopyfulProvider, Copyful } from './configureCopy';
+import React, { useState } from 'react';
+import { CopyfulProvider, Copyful, getCopySomehow, Locales } from './configureCopy';
+import { copy } from './copy';
 import { HeaderSection } from './HeaderSection';
 
 export const Example = () => {
+  const [locale, setLocale] = useState<Locales>('en-us');
+
+  const toggleLocale = () => {
+    setLocale(locale === 'en-us' ? '1337' : 'en-us');
+  };
+
   return (
-    <CopyfulProvider>
+    <CopyfulProvider copy={getCopySomehow(copy, locale)}>
       {/* Example using Hooks */}
+      <button onClick={toggleLocale}>Toggle Locale</button>
       <HeaderSection />
 
       {/* Example using a render prop */}

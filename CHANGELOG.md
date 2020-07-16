@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/heydoctor/copyful/compare/v0.1.12...v0.1.13) (2020-07-16)
+
+
+### Bug Fixes
+
+* restore overriding provider value through copy prop ([#7](https://github.com/heydoctor/copyful/issues/7)) ([c5cac1b](https://github.com/heydoctor/copyful/commit/c5cac1b32433583556976d9655c6a2e235978ab5))
+
 ### 0.1.12 (2020-05-30)
 
 

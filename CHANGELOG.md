@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/heydoctor/copyful/compare/v0.1.13...v0.1.14) (2020-07-16)
+
+
+### Bug Fixes
+
+* remove react dependencies ([9fd80fc](https://github.com/heydoctor/copyful/commit/9fd80fc89e23c0db1e88e1fc8898bc713fd99911))
+
 ### [0.1.13](https://github.com/heydoctor/copyful/compare/v0.1.12...v0.1.13) (2020-07-16)
 
 

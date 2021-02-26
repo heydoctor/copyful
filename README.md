@@ -24,7 +24,7 @@ yarn add copyful
 Instantiate Copyful with `createCopyful`.
 
 ```tsx
-import React from "react";
+import React from 'react';
 import { createCopyful } from './Copyful';
 
 const copy = {
@@ -37,7 +37,7 @@ const copy = {
 export const {
   CopyfulProvider,
   useCopy
-} = createCopyful(copy));
+} = createCopyful(copy);
 
 function App() {
   return (

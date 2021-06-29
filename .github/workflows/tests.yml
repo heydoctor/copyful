@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '12.16.1'
     - run: yarn install --frozen-lockfile
     - run: yarn npm-run-all build cli:build
     - run: yarn test --coverage

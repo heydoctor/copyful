@@ -76,6 +76,6 @@
     "contentful": "8.1.8",
     "dotenv": "^8.2.0",
     "lodash.set": "^4.3.2",
-    "yargs": "^15.3.1"
+    "yargs": "^15.4.1"
   }
 }
